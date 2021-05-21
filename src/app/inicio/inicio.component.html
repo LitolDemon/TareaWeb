@@ -1,0 +1,84 @@
+<h1>Mis Notas</h1>
+<div *ngIf="screen==0" id="nuevaNota">
+    <form [formGroup]="form" (ngSubmit)='enviar()'>
+    <table id="tForm" style="width:auto">
+        <tr>Titulo<br>
+            <input formControlName="titulo" type="text" required="true" class='form-control' id='floatingText' placeholder="titulo" requiered=true>
+        </tr>
+        
+        <tr>Estado<br>
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="estado">
+                <option selected disabled>Seleccione</option>
+                <option value="1">Iniciado</option>
+                <option value="2">En Proceso</option>
+                <option value="3">Terminado</option>
+            </select>
+        </tr>
+        
+        <tr>Descripción<br>
+            <textarea class="form-control" placeholder="Descripción aquí" formControlName="descripcion"></textarea>
+        </tr>
+        
+        <tr><button type="submit"[disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button></tr>
+    </table>
+    </form>
+</div>
+    
+<div *ngIf="screen==1">
+    <table id="tMostrar" style="width:80%">
+        <tr>
+          <th>Iniciadas</th>
+          <th>En Proceso</th>
+          <th>Terminadas</th>
+        </tr>
+        <tr>
+          <td>
+              <li *ngFor="let item of iniciadas"> 
+                    <button class="boton" id="b1" type='buttom' (click)='actualizar(item)'>
+                        {{item["titulo"]}} <br> {{item["descripcion"]}} 
+                    </button>
+                    <button type="button" class="botonX" (click)='eliminar(item)'>X</button>
+            </li>
+        </td>
+          <td><li *ngFor="let item of enProceso"><button class="boton" id="b2" type='buttom' (click)='actualizar(item)'>
+              {{item["titulo"]}} <br> {{item["descripcion"]}} 
+            </button>
+            <button type="button" class="botonX" (click)='eliminar(item)'>X</button>
+        </li></td>
+        <td><li *ngFor="let item of cerradas">
+            <button class="boton" id="b3" type='buttom' (click)='actualizar(item)'>
+              {{item["titulo"]}} <br> {{item["descripcion"]}}
+            </button>
+            <button type="button" class="botonX" (click)='eliminar(item)'>X</button>
+        </li></td>
+        </tr>
+    </table>
+    <footer>
+        <button type='buttom' (click)='nueva()'>Adicionar</button>
+    </footer>
+</div>
+
+<div *ngIf="screen==2">
+    <form [formGroup]="form" (ngSubmit)='enviar()'>
+    <table id="tForm" style="width:auto">
+        <tr>Titulo<br>
+            <input formControlName="titulo" type="text" required="true" class='form-control' id='floatingText' placeholder="titulo" requiered=true>
+        </tr>
+        
+        <tr>Estado<br>
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="estado">
+                <option selected disabled>Seleccione</option>
+                <option value="1">Iniciado</option>
+                <option value="2">En Proceso</option>
+                <option value="3">Terminado</option>
+            </select>
+        </tr>
+        
+        <tr>Descripción<br>
+            <textarea class="form-control" placeholder="Descripción aquí" formControlName="descripcion"></textarea>
+        </tr>
+        
+        <tr><button type="submit"[disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button></tr>
+    </table>
+    </form>
+</div>

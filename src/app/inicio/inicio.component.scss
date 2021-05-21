@@ -1,0 +1,48 @@
+.boton{
+    border: none;
+    color: white;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+#b1{
+    background-color: #f44336;
+}
+#b2{
+    background-color: #a0b92e;
+}
+#b3{
+    background-color: #3a376e;
+}
+
+h1{
+    color : #391a41;
+    text-align: left;
+    font: 450%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+}
+#tForm {
+    background-color: #b37398;
+    border:1px solid;
+    margin: 50px;
+  }
+
+li{
+    list-style-type: none;
+}
+
+#tMostrar{
+    margin-left: 10%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    
+}
+table td, table td *{
+    margin: 1%;
+    text-align: center;
+    vertical-align: top;
+}
